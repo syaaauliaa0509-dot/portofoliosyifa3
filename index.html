@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Syifa Aulia</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset & Variabel Warna Soft Pink Seragam */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg-color: #f1bec7; /* Latar belakang Soft Pink Pastel pilihan Anda */
+            --text-dark: #2d1e2f; /* Teks plum gelap agar mudah dibaca */
+            --accent-pink: #db2777; /* Warna Pink Utama/Aksen */
+            --accent-pink-hover: #be185d;
+            --card-bg: rgba(255, 255, 255, 0.9); /* Kartu putih soft transparan agar seragam */
+            --nav-bg: rgba(255, 255, 255, 0.92);
+            --border-pink: #f48fb1;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navbar Melayang */
+        header {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 900px;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            padding: 12px 30px;
+            border-radius: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(219, 39, 119, 0.08);
+            border: 1px solid var(--border-pink);
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-pink);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-pink);
+        }
+
+        /* Section Layout Lebih Rapat */
+        section {
+            padding: 50px 10%;
+        }
+
+        /* Hero / Home Section */
+        #home {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 130px;
+            padding-bottom: 40px;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .hero-text h1 .highlight-pink {
+            color: var(--accent-pink);
+            font-style: italic;
+        }
+
+        .hero-text p {
+            font-size: 1rem;
+            color: #4a3b4c;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        /* Tombol Sesuai Tema */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-pink);
+            color: #fff;
+            padding: 12px 26px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(219, 39, 119, 0.25);
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-pink-hover);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.7);
+            color: var(--text-dark);
+            padding: 12px 26px;
+            border-radius: 30px;
+            border: 1.5px solid var(--accent-pink);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--accent-pink);
+            color: #fff;
+        }
+
+        /* Foto Profil Melingkar */
+        .hero-image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-img-placeholder {
+            width: 330px;
+            height: 330px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-pink);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #facae5;
+            box-shadow: 0 10px 30px rgba(219, 39, 119, 0.15);
+        }
+
+        .profile-img-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Section Title & Cards */
+        .section-title {
+            font-size: 2.2rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 25px;
+            text-align: center;
+            color: var(--accent-pink);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 22px;
+            border-radius: 18px;
+            border: 1px solid var(--border-pink);
+            box-shadow: 0 4px 15px rgba(219, 39, 119, 0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card h3 {
+            color: var(--accent-pink);
+            margin-bottom: 8px;
+            font-size: 1.15rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #4a3b4c;
+        }
+
+        .card .badge {
+            display: inline-block;
+            background: #fce7f3;
+            color: var(--accent-pink);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 12px;
+            margin-top: 12px;
+        }
+
+        /* Sosial Media Box (Poin No. 4) */
+        .social-box {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--border-pink);
+            padding: 8px 18px;
+            border-radius: 20px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .social-btn:hover {
+            background-color: var(--accent-pink);
+            color: #fff;
+            border-color: var(--accent-pink);
+        }
+
+        /* Form Kontak Disatukan Warna */
+        .contact-form {
+            max-width: 550px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border-pink);
+            font-family: inherit;
+            outline: none;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--accent-pink);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            background: #fbcfe8;
+            margin-top: 30px;
+        }
+
+        /* Responsive Mobile */
+        @media (max-width: 768px) {
+            #home {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 110px;
+            }
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            .btn-group {
+                justify-content: center;
+            }
+            .profile-img-placeholder {
+                width: 250px;
+                height: 250px;
+            }
+            .nav-links {
+                gap: 10px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi Melayang -->
+    <header>
+        <div class="logo">Syifa.</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="hero-text">
+            <h1>Halo, Saya <br><span class="highlight-pink">Syifa Aulia</span><br>Student Web Developer</h1>
+            <p>Saya seorang pelajar yang berfokus pada pengembangan website, tertarik mempelajari teknologi frontend dan antarmuka web yang modern serta estetis.</p>
+            <div class="btn-group">
+                <a href="#projects" class="btn-primary">Lihat Karya Saya</a>
+                
+                <!-- Link File CV PDF Anda -->
+                <a href="cv-syifa.pdf.pdf" download class="btn-secondary">Download CV</a>
+            </div>
+        </div>
+        <div class="hero-image-container">
+            <div class="profile-img-placeholder">
+                <!-- Link Foto Profil Anda -->
+                <img src="fotosyifa.jpeg" alt="Foto Syifa Aulia">
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section (4 Kartu Lengkap) -->
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Website Proyek Tugas Sekolah</h3>
+                <p>Mengembangkan proyek sistem informasi web sederhana berbasis server lokal dan manajemen database.</p>
+                <span class="badge">VS Code • XAMPP • MySQL</span>
+            </div>
+            <div class="card">
+                <h3>Website Portofolio Personal</h3>
+                <p>Website portofolio interaktif berbasis HTML dan CSS dengan konsep tema soft pink pastel.</p>
+                <span class="badge">HTML5 • CSS3 • Responsive</span>
+            </div>
+            <div class="card">
+                <h3>Desain UI/UX Web di Figma</h3>
+                <p>Perancangan tata letak antarmuka halaman web sebelum masuk ke proses penulisan kode.</p>
+                <span class="badge">Figma • UI/UX Design</span>
+            </div>
+            <div class="card">
+                <h3>Formulir Pendaftaran Interaktif</h3>
+                <p>Pembuatan komponen input data pengguna interaktif dengan validasi dasar berbasis web.</p>
+                <span class="badge">HTML5 • Validation</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Web Frontend</h3>
+                <p>HTML5, CSS3, Responsive Web Design, Flexbox & CSS Grid</p>
+            </div>
+            <div class="card">
+                <h3>Code Editor & Tools</h3>
+                <p>Visual Studio Code (VS Code), Git, GitHub, Figma (UI/UX Layouting)</p>
+            </div>
+            <div class="card">
+                <h3>Local Server & Database</h3>
+                <p>XAMPP (Apache, MySQL), Localhost Management</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Student Web Developer</h3>
+                <p><strong>Sekolah / Tempat Belajar</strong> | 2024 - Sekarang</p>
+                <p style="margin-top: 8px;">Aktif mempelajari pembuatan tampilan website, menggunakan Visual Studio Code dan XAMPP untuk proyek tugas sekolah, serta mengasah pemahaman logika pemrograman.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="card" style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <p>Halo! Saya <strong>Syifa Aulia</strong>, seorang pelajar yang berdedikasi dan bersemangat dalam dunia <i>Web Development</i>. Berawal dari ketertarikan pada desain dan teknologi, saya terus mengasah kemampuan menggunakan tool seperti VS Code dan XAMPP untuk membangun tampilan website yang menarik, responsif, dan ramah pengguna.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section & Social Media (Poin No. 4) -->
+    <section id="contact">
+        <h2 class="section-title">Contact</h2>
+        
+        <!-- Tombol Sosial Media & Kontak Aktif -->
+        <div class="social-box">
+            <a href="mailto:syifa.aulia@email.com" class="social-btn">📧 Email</a>
+            <a href="https://github.com" target="_blank" class="social-btn">🐙 GitHub</a>
+            <a href="https://instagram.com" target="_blank" class="social-btn">📷 Instagram</a>
+            <a href="https://linkedin.com" target="_blank" class="social-btn">💼 LinkedIn</a>
+        </div>
+
+        <form class="contact-form" action="#" method="POST">
+            <input type="text" placeholder="Nama Anda" required>
+            <input type="email" placeholder="Email Anda" required>
+            <textarea rows="4" placeholder="Pesan Anda" required></textarea>
+            <button type="submit" class="btn-primary">Kirim Pesan</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Syifa Aulia - Student Web Developer. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
